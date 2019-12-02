@@ -1,0 +1,15 @@
+---
+- name: "Create ~{{user.name}}/.aws"
+  file:
+    path: "~{{user.name}}/.aws"
+    state: "directory"
+    mode: "0700"
+    owner: "{{user.name}}"
+    group: "{{user.group|default(user.name)}}"
+  tags: [ configs ]
+
+- include_tasks: "create_user_configs.yml"
+  loop: "{{ user.profiles | default([]) }}"
+  loop_control:
+    loop_var: "profile"
+  tags: [ configs ]

@@ -1,0 +1,19 @@
+---
+awscli_region: "us-east-1"
+awscli_users: []
+  # - name: someuser
+  #   profiles:
+  #   - name: default
+  #     region: "ca-central-1"
+  #     access: !vault
+  #     secret: !vault
+  # - name: anotheruser
+  #   profiles:
+  #   - name: default
+  #     access: !vault
+  #     secret: !vault
+  #     output: "json"
+  #   - name: alternate
+  #     region: "ca-central-1"
+  #     access: !vault
+  #     secret: !vault

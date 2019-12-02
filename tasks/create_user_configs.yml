@@ -1,0 +1,17 @@
+---
+- name: "Add {{profile.name}} profile to ~{{user.name}}/.aws/config"
+  blockinfile:
+    create: "yes"
+    path: "~{{user.name}}/.aws/config"
+    owner: "{{user.name}}"
+    group: "{{user.group|default(user.name)}}"
+    mode: "0600"
+    marker: "## {mark} - {{profile.name}} - ansible managed ##"
+    block: |
+      [profile {{profile.name}}]
+      region={{profile.region|default(awscli_region)}}
+      output={{profile.output|default('json')}}
+      aws_access_key_id={{profile.access}}
+      aws_secret_access_key={{profile.secret}}
+  ignore_errors: "{{ansible_check_mode}}"
+  tags: [ configs ]
