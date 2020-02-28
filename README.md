@@ -2,6 +2,8 @@
 
 ##### Ansible role to install &amp; manage AWS CLI runtime / user configs
 
+This role requires pip - see github.com/globeandmail/ansible-role-pip3
+
 Default Variables:
 
     awscli_region: "us-east-1"

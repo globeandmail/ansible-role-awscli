@@ -1,8 +1,7 @@
 ---
 - name: Install the AWSCLI package
-  apt:
+  pip:
     name: "awscli"
-    state: "present"
   tags: [ never, infra ]
 
 - include_tasks: "create_cfgs.yml"

@@ -1,5 +1,5 @@
 ---
-- name: "Create ~{{user.name}}/.aws"
+- name: "Create ~{{user.name}}/.aws/"
   file:
     path: "~{{user.name}}/.aws"
     state: "directory"
