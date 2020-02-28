@@ -14,4 +14,4 @@
       aws_access_key_id={{profile.access}}
       aws_secret_access_key={{profile.secret}}
   ignore_errors: "{{ansible_check_mode}}"
-  tags: [ configs ]
+#  tags: [ configs ]

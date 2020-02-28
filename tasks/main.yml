@@ -2,10 +2,10 @@
 - name: Install the AWSCLI package
   pip:
     name: "awscli"
-  tags: [ never, infra ]
+#  tags: [ never, infra ]
 
 - include_tasks: "create_cfgs.yml"
   loop: "{{ awscli_users | default([]) }}"
   loop_control:
     loop_var: "user"
-  tags: [ never, configs ]
+#  tags: [ never, configs ]
