@@ -8,7 +8,7 @@
     mode: "0600"
     marker: "## {mark} - {{profile.name}} - ansible managed ##"
     block: |
-      [profile {{profile.name}}]
+      [{% if profile.name != 'default' %}profile {% endif %}{{profile.name}}]
       region={{profile.region|default(awscli_region)}}
       output={{profile.output|default('json')}}
       aws_access_key_id={{profile.access}}
