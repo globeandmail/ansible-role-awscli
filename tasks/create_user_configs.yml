@@ -15,3 +15,18 @@
       aws_secret_access_key={{profile.secret}}
   ignore_errors: "{{ansible_check_mode}}"
 #  tags: [ configs ]
+
+- name: "Add {{profile.name}} profile to ~{{user.name}}/.aws/credentials"
+  blockinfile:
+    create: "yes"
+    path: "~{{user.name}}/.aws/credentials"
+    owner: "{{user.name}}"
+    group: "{{user.group|default(user.name)}}"
+    mode: "0600"
+    marker: "## {mark} - {{profile.name}} - ansible managed ##"
+    block: |
+      [{{profile.name}}]
+      aws_access_key_id={{profile.access}}
+      aws_secret_access_key={{profile.secret}}
+  ignore_errors: "{{ansible_check_mode}}"
+#  tags: [ configs ]
